@@ -115,9 +115,8 @@ Kesimpulan: (contoh: Asidosis respiratorik akut dengan hipoksemia)
                            │
                            v
                ┌──────────────────────┐
-               │        Selesai        │
+               │        Selesai       │
                └──────────────────────┘
-```
 ---
 
 ## 🖥️ **Teknologi yang Digunakan**
