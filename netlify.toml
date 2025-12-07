@@ -1,0 +1,9 @@
+[build]
+  # Pastikan ini sesuai dengan folder output build Anda
+  # Umumnya "dist" untuk Vite, atau "build" untuk Create React App
+  publish = "dist" 
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
