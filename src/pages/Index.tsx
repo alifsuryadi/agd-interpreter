@@ -48,7 +48,7 @@ const Index = () => {
 
             {/* Side Info Cards - Desktop only */}
             <div className="hidden lg:block lg:col-span-3 lg:col-start-1 lg:row-start-1 space-y-4">
-              <div className="medical-card sticky top-24">
+              <div className="medical-card">
                 <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <BookOpen className="w-4 h-4 text-primary" />
                   Tentang Alat Ini
@@ -89,7 +89,7 @@ const Index = () => {
 
             {/* Right sidebar - Desktop only */}
             <div className="hidden lg:block lg:col-span-3 space-y-4">
-              <div className="medical-card sticky top-24">
+              <div className="medical-card">
                 <h3 className="font-semibold text-foreground mb-3">Nilai Referensi</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between py-2 border-b border-border/50">
