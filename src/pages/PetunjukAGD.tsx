@@ -12,9 +12,9 @@ interface GuideCardProps {
 
 function GuideCard({ number, title, icon, children }: GuideCardProps) {
   return (
-    <div className="medical-card animate-fade-in" style={{ animationDelay: `${number * 50}ms` }}>
+    <div className="medical-card animate-fade-in h-full" style={{ animationDelay: `${number * 50}ms` }}>
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-xl gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm">
+        <div className="w-10 h-10 rounded-xl gradient-medical flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">
           {number}
         </div>
         <div className="flex items-center gap-2">
@@ -62,9 +62,34 @@ const PetunjukAGD = () => {
         />
       </Helmet>
       <main className="min-h-screen bg-background">
-        <div className="container max-w-md mx-auto px-4 py-6 pb-10">
-          {/* Header */}
-          <div className="flex items-center gap-3 mb-6">
+        {/* Desktop Header */}
+        <header className="hidden lg:block border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+          <div className="container max-w-6xl mx-auto px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Button variant="ghost" size="icon" asChild>
+                  <Link to="/">
+                    <ArrowLeft className="w-5 h-5" />
+                  </Link>
+                </Button>
+                <div>
+                  <h1 className="text-lg font-bold text-foreground">Petunjuk Interpretasi AGD</h1>
+                  <p className="text-xs text-muted-foreground">Panduan langkah demi langkah</p>
+                </div>
+              </div>
+              <Button asChild className="gradient-medical">
+                <Link to="/">
+                  <Activity className="w-4 h-4 mr-2" />
+                  Mulai Interpretasi
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </header>
+
+        <div className="container max-w-md lg:max-w-6xl mx-auto px-4 lg:px-6 py-6 lg:py-10 pb-10">
+          {/* Mobile Header */}
+          <div className="flex items-center gap-3 mb-6 lg:hidden">
             <Button variant="ghost" size="icon" asChild className="shrink-0">
               <Link to="/">
                 <ArrowLeft className="w-5 h-5" />
@@ -76,7 +101,25 @@ const PetunjukAGD = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
+          {/* Desktop intro */}
+          <div className="hidden lg:block mb-8">
+            <div className="medical-card gradient-medical text-primary-foreground max-w-2xl">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-primary-foreground/20 flex items-center justify-center shrink-0">
+                  <BookOpen className="w-7 h-7" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold mb-1">Panduan Interpretasi AGD</h2>
+                  <p className="text-sm opacity-90">
+                    Ikuti 6 langkah sistematis untuk menginterpretasi hasil Analisa Gas Darah dengan benar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Cards Grid - responsive */}
+          <div className="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-6">
             {/* Step 1: Urutan Interpretasi */}
             <GuideCard 
               number={1} 
@@ -157,15 +200,15 @@ const PetunjukAGD = () => {
                   </p>
                   <ul className="space-y-1.5 text-sm">
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-destructive"></span>
+                      <span className="w-2 h-2 rounded-full bg-destructive shrink-0"></span>
                       <span><strong>Tidak ada:</strong> pH abnormal, kompensator normal</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-warning"></span>
+                      <span className="w-2 h-2 rounded-full bg-warning shrink-0"></span>
                       <span><strong>Parsial:</strong> pH abnormal, kompensator berubah</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-success"></span>
+                      <span className="w-2 h-2 rounded-full bg-success shrink-0"></span>
                       <span><strong>Penuh:</strong> pH normal, kedua parameter abnormal</span>
                     </li>
                   </ul>
@@ -217,9 +260,11 @@ const PetunjukAGD = () => {
                 </div>
               </div>
             </GuideCard>
+          </div>
 
-            {/* CTA Button */}
-            <Button asChild className="w-full btn-medical gradient-medical mt-6">
+          {/* CTA Button */}
+          <div className="mt-8 lg:flex lg:justify-center">
+            <Button asChild className="w-full lg:w-auto lg:px-12 btn-medical gradient-medical">
               <Link to="/">
                 <Activity className="w-5 h-5 mr-2" />
                 Mulai Interpretasi AGD
@@ -228,7 +273,7 @@ const PetunjukAGD = () => {
           </div>
 
           {/* Footer */}
-          <footer className="mt-8 text-center">
+          <footer className="mt-8 lg:mt-12 text-center">
             <p className="text-xs text-muted-foreground">
               Panduan ini bersifat ringkas untuk membantu interpretasi cepat.
               <br />

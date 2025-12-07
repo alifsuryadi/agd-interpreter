@@ -260,8 +260,8 @@ export function AGDForm() {
         Interpretasikan AGD
       </Button>
 
-      {/* Reference Card */}
-      <div className="medical-card bg-muted/30">
+      {/* Reference Card - Mobile only (desktop shows in sidebar) */}
+      <div className="medical-card bg-muted/30 lg:hidden">
         <h3 className="text-sm font-semibold text-muted-foreground mb-3">Nilai Normal</h3>
         <div className="grid grid-cols-2 gap-2 text-sm">
           <div className="flex justify-between">
