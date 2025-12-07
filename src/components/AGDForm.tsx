@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AGDInput } from "./AGDInput";
 import { AGDResultCard } from "./AGDResult";
 import { interpretAGD, AGDValues, AGDResult } from "@/lib/agb-interpreter";
-import { Activity, Stethoscope } from "lucide-react";
+import { Activity, Stethoscope, BookOpen } from "lucide-react";
 
 interface FormValues {
   pH: string;
@@ -156,14 +157,27 @@ export function AGDForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* Header */}
       <div className="medical-card gradient-medical text-primary-foreground mb-6">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-primary-foreground/20 flex items-center justify-center">
-            <Stethoscope className="w-6 h-6" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-primary-foreground/20 flex items-center justify-center">
+              <Stethoscope className="w-6 h-6" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold">Interpretasi AGD</h1>
+              <p className="text-sm opacity-90">Analisa Gas Darah</p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-xl font-bold">Interpretasi AGD</h1>
-            <p className="text-sm opacity-90">Analisa Gas Darah</p>
-          </div>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            asChild
+            className="text-primary-foreground hover:bg-primary-foreground/20"
+          >
+            <Link to="/petunjuk">
+              <BookOpen className="w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </div>
 
