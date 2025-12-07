@@ -1,13 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { AGDForm } from "@/components/AGDForm";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Helmet>
+        <title>Interpretasi AGD | Analisa Gas Darah</title>
+        <meta 
+          name="description" 
+          content="Kalkulator interpretasi Analisa Gas Darah (AGD/ABG) otomatis. Masukkan nilai pH, PaCO₂, HCO₃, PaO₂, dan SpO₂ untuk mendapatkan interpretasi lengkap." 
+        />
+      </Helmet>
+      <main className="min-h-screen bg-background">
+        <div className="container max-w-md mx-auto px-4 py-6 pb-10">
+          <AGDForm />
+          
+          {/* Footer */}
+          <footer className="mt-8 text-center">
+            <p className="text-xs text-muted-foreground">
+              Alat bantu interpretasi AGD untuk tenaga kesehatan.
+              <br />
+              Selalu konfirmasi dengan kondisi klinis pasien.
+            </p>
+          </footer>
+        </div>
+      </main>
+    </>
   );
 };
 
